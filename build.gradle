@@ -1,0 +1,33 @@
+apply plugin: 'java'
+    apply plugin: 'findbugs'
+
+    findbugs {
+        excludeFilter = file("$rootProject.projectDir/src/main/findbugs/findbugs-excludes.xml")
+    }
+
+
+apply plugin: 'eclipse'
+
+sourceCompatibility = 1.2
+targetCompatibility = 1.2
+
+tasks.withType(Compile) {
+    options.compilerArgs << "-Xlint:-options"
+}
+
+compileTestJava { sourceCompatibility = '1.7'; targetCompatibility = '1.7' }
+
+version = '1.0'
+jar {
+    manifest {
+        attributes 'Implementation-Title': 'org.injava.lang.DesignByContract', 'Implementation-Version': version
+    }
+}
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  testCompile 'junit:junit:4.11'
+}

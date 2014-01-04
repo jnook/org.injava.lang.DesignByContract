@@ -1,0 +1,7 @@
+<!-- Weed out FindBugs detectors that promote pseudo best-practices and premature
+    optimization. -->
+<FindBugsFilter>
+    <Match>
+        <Bug pattern="WMI_WRONG_MAP_ITERATOR" />
+    </Match>
+</FindBugsFilter>
