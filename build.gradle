@@ -58,7 +58,10 @@ uploadArchives {
         mavenDeployer {
             beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
 
-            repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
+	    def repositoryUrl = "https://oss.sonatype.org/content/repositories/snapshots/" // Sonatype OSS snapshots
+            // TODO: Automate CI/CD deployments
+            // def repositoryUrl = "https://oss.sonatype.org/service/local/staging/deploy/maven2/" // productive URL (staging)
+            repository(url: repositoryUrl) {
               authentication(userName: sonatypeUsername, password: sonatypePassword)
             }
 
