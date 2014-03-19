@@ -69,7 +69,7 @@ uploadArchives {
                name 'DesignByContract'
                packaging 'jar'
                description 'DesignByContract provides EIFFEL-inspired support for the design-by-contract approach in Java'
-               url 'http://gradlefx.github.com/'
+               url 'http://www.injava.org'
 
                scm {
                    url 'scm:git@github.com:jnook/org.injava.lang.DesignByContract.git'
