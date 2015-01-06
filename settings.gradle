@@ -1,0 +1,3 @@
+include 'DesignByContract'
+include 'DesignByContractTests'
+

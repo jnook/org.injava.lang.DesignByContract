@@ -1,0 +1,7 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+group = 'org.injava.lang'
+
+sourceCompatibility = 1.2
+targetCompatibility = 1.2

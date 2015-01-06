@@ -139,9 +139,9 @@ public class Preconditions {
 	 *            the collection that to check for undesired {@code null}
 	 *            references.
 	 */
-	public static void requireNoNullElements(final Collection<?> collection) {
+	public static void requireNoNullElements(final Collection collection) {
 		requireNonNull(collection);
-		final Iterator<?> it = collection.iterator();
+		final Iterator it = collection.iterator();
 		while (it.hasNext()) {
 			final Object object = it.next();
 			requireNonNull(object);
