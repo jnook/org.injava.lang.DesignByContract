@@ -1,0 +1,42 @@
+"DesignByContract" contains the bare minimum required to
+add precondition checks to methods and constructors, inspired by
+[Meyer98].
+
+Obviously this is not the first library to provide precondition check methods:
+- Java 7 introduced Objects.requireNonNull
+- Scala provides Predef.require/assert and Ensuring
+- commons-lang provides notNull, noNullElements, notEmpty, ...
+- guava has checkArgument, checkState, ...
+
+Why would you need a separate library that just handles design by contract?
+- After writing a failing unit-test, the next thing you do is carve out
+  the contract of the method your work on. junit + DesignByContract
+  may be all you need for a sustainable project to start.
+- You add features only when required instead of removing 1000s of features
+  you do not need afterwards or that might be exploited.
+- 2k sounds better than 270k or more when doing remote deployments.
+- Your library should not depend on another huge library and forces
+  your clients to transitively depend on the huge library, too.
+- You might want to use some obscure techniques such as ahead-of-time
+  compilation with GCJ (which requires ancient class file version).
+
+Q&A:
+
+Q: Why don't you follow the style of using hyphens as project names,
+   like "my-project-is-great"?
+A: Hyphens ("-") are not allowed as Java identifiers. A prototype build
+   tool of mine allows for dependencies to be declared as:
+
+     compile.addDependency(_org.injava.mylib.FooBar.v2_1);
+
+   ...so it helps when project coordinates are valid Java identifiers.
+
+Notes:
+- I use gradle for convenience in development, but Maven 3 for releasing
+  to Maven Central. I am not sure if this is an amazing idea, but
+  gradle scripts get really messy with signing and publishing information.
+
+References:
+
+[Meyer98]       Meyer, Bertrand: "Object-Oriented Software Construction", 
+                2nd edition, Prentice Hall, 1998.
